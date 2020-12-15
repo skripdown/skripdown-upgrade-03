@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="repository setup" />
+    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="SSL support setup">
+      <change afterPath="$PROJECT_DIR$/app/Models/Advise.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Advisor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/AdvisorKeyword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Department.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/DepartmentKeyword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/DocumentKeyword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Exam.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Examiner.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Faculty.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Keyword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Occupation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Plagiarism.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/RejectedProposal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Revision.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Super.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Template.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164209_create_supers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164645_create_faculties_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164739_create_departments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164808_create_advisors_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164825_create_students_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164945_create_templates_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164946_create_documents_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_100451_create_advises_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_100155_create_exams_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_100156_create_examiners_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_101709_create_occupations_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_103941_create_revisions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_104348_create_proposals_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_165341_create_rejected_proposals_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_170902_create_keywords_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_020555_create_document_keywords_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_022618_create_advisor_keywords_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_022754_create_department_keywords_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_063249_create_plagiarisms_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -142,17 +185,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1lYiUyOfdWolON0Ws7N2sV8exFc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -171,7 +216,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607780444693</updated>
-      <workItem from="1607780447172" duration="1009000" />
+      <workItem from="1607780447172" duration="1249000" />
+      <workItem from="1607791130559" duration="6585000" />
+      <workItem from="1607799420831" duration="299000" />
+      <workItem from="1607851772260" duration="4048000" />
+      <workItem from="1607857373937" duration="604000" />
+      <workItem from="1607858418823" duration="1832000" />
+      <workItem from="1607924060506" duration="5088000" />
+      <workItem from="1607940864077" duration="2709000" />
+      <workItem from="1607964346497" duration="334000" />
+      <workItem from="1607964701618" duration="1666000" />
+      <workItem from="1607995209642" duration="3741000" />
+      <workItem from="1608001268463" duration="3638000" />
     </task>
     <task id="LOCAL-00001" summary="repository setup">
       <created>1607781792431</created>
@@ -180,14 +236,35 @@
       <option name="project" value="LOCAL" />
       <updated>1607781792431</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="SSL support setup">
+      <created>1607782034019</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607782034019</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="repository setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="repository setup" />
+    <MESSAGE value="SSL support setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="SSL support setup" />
   </component>
 </project>
