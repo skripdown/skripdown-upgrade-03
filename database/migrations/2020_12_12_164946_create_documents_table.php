@@ -22,9 +22,10 @@ class CreateDocumentsTable extends Migration
             $table->bigInteger('template_id')->unsigned();
             $table->string('title');
             $table->string('url');
-            $table->boolean('submit');
-            $table->text('meta_content')->nullable();
+            $table->boolean('submit')->default(false);
+            $table->text('meta_content');
             $table->text('content')->nullable();
+            $table->text('parsed_ontent')->nullable();
             $table->text('chapter_i')->nullable();
             $table->text('chapter_ii')->nullable();
             $table->text('chapter_iii')->nullable();

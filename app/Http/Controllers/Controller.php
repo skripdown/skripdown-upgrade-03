@@ -18,9 +18,6 @@ class Controller extends BaseController
     }
 
     public function dashboard() {
-        if (_Authorize::student()) {
 
-        }
-        return redirect()->route('home');
     }
 }

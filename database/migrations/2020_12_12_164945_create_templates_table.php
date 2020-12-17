@@ -16,6 +16,7 @@ class CreateTemplatesTable extends Migration
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('super_id')->unsigned();
+            $table->boolean('default')->default(false);
             $table->string('name');
             $table->text('stylesheet');
             $table->timestamps();

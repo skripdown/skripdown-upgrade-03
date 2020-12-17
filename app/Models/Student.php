@@ -19,7 +19,19 @@ class Student extends Model
             $student->user_id = $user->id;
             $student->save();
         }
-        return User::with('student')->where('identity',$identity)->first();
+        return Student::with([
+            'user',
+            'department',
+            'faculty',
+            'super',
+            'super.templates'=>function ($query) {
+                $query->where('default',true);
+            },
+            'document',
+            'proposal',
+            'exam',
+            'exam.examiners'
+        ])->where('identity',$identity)->first();
     }
 
     public function document(): HasOne
@@ -40,5 +52,20 @@ class Student extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function faculty(): BelongsTo
+    {
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function super(): BelongsTo
+    {
+        return $this->belongsTo(Super::class);
     }
 }

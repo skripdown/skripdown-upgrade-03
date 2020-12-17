@@ -22,6 +22,11 @@ class Department extends Model
         return User::with('faculty')->where('identity',$identity)->first();
     }
 
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class);
+    }
+
     public function occupations(): HasMany
     {
         return $this->hasMany(Occupation::class);

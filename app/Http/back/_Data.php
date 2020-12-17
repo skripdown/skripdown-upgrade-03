@@ -5,6 +5,7 @@ namespace App\Http\back;
 
 
 use App\Models\Document;
+use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 
 class _Data
@@ -17,5 +18,11 @@ class _Data
         $response->total_active = $total_active;
 
         return $response;
+    }
+
+    public static function resp_dashboard() {
+        if (_Authorize::student()) {
+            $auth = _Authorize::data();
+        }
     }
 }

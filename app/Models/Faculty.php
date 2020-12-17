@@ -21,6 +21,11 @@ class Faculty extends Model
         return User::with('faculty')->where('identity',$identity)->first();
     }
 
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class);
+    }
+
     public function departments(): HasMany
     {
         return $this->hasMany(Department::class);

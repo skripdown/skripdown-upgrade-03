@@ -47,18 +47,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function findOrCreate($identity, $role = 'student'): User {
+    public static function findOrCreate(
+        $identity,
+        $role  = 'student',
+        $name  = 'temp_name',
+        $email = 'temp_email',
+        $pass  = 'temp_pass'
+    ): User {
         if (User::all()->where('identity',$identity)->count() == 0) {
             $temp_user = new User();
             $temp_user->identity = $identity;
-            $temp_user->name     = 'temp_val';
-            $temp_user->email    = 'temp_val@temp.tmp';
+            $temp_user->name     = $name;
+            $temp_user->email    = $email;
             $temp_user->role     = $role;
-            $temp_user->password = Hash::make('temp_val');
+            $temp_user->password = Hash::make($pass);
             $temp_user->save();
             return $temp_user;
         }
         return User::all()->where('identity',$identity)->first();
+    }
+
+    public function scopeRole($query, $type = 'super') {
+        return $query->where('role',$type);
     }
 
     public function student(): HasOne {

@@ -4,6 +4,7 @@
 namespace App\Http\back;
 
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
 class _Authorize
@@ -36,5 +37,12 @@ class _Authorize
         if (!Auth::check())
             return false;
         return Auth::user()->role == 'super';
+    }
+
+    public static function data(): ?Authenticatable {
+        if (Auth::check()) {
+            return Auth::user();
+        }
+        return null;
     }
 }

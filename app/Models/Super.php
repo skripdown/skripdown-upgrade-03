@@ -21,6 +21,11 @@ class Super extends Model
         return User::with('super')->where('identity',$identity)->first();
     }
 
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class);
+    }
+
     public function faculties(): HasMany
     {
         return $this->hasMany(Faculty::class);

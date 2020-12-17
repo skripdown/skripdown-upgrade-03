@@ -15,7 +15,6 @@ class CreateSupersTable extends Migration
     {
         Schema::create('supers', function (Blueprint $table) {
             $table->id();
-            $table->text('template');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')
