@@ -1,49 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="SSL support setup">
-      <change afterPath="$PROJECT_DIR$/app/Models/Advise.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Advisor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/AdvisorKeyword.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Department.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/DepartmentKeyword.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/DocumentKeyword.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Exam.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Examiner.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Faculty.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Keyword.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Occupation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Plagiarism.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/RejectedProposal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Revision.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Super.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Template.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164209_create_supers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164645_create_faculties_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164739_create_departments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164808_create_advisors_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164825_create_students_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164945_create_templates_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_164946_create_documents_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_100451_create_advises_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_100155_create_exams_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_100156_create_examiners_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_101709_create_occupations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_103941_create_revisions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_104348_create_proposals_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_165341_create_rejected_proposals_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_170902_create_keywords_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_020555_create_document_keywords_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_022618_create_advisor_keywords_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_022754_create_department_keywords_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_15_063249_create_plagiarisms_table.php" afterDir="false" />
+    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="database migrations setup">
+      <change afterPath="$PROJECT_DIR$/app/Http/back/_Authorize.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/back/_Data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/skripdown-upgrade-03.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/skripdown-upgrade-03.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Advisor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Advisor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Department.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Faculty.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Faculty.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Super.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Super.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +156,7 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lYiUyOfdWolON0Ws7N2sV8exFc" />
@@ -227,7 +202,12 @@
       <workItem from="1607964346497" duration="334000" />
       <workItem from="1607964701618" duration="1666000" />
       <workItem from="1607995209642" duration="3741000" />
-      <workItem from="1608001268463" duration="3638000" />
+      <workItem from="1608001268463" duration="8716000" />
+      <workItem from="1608123350999" duration="710000" />
+      <workItem from="1608124175015" duration="537000" />
+      <workItem from="1608132946488" duration="291000" />
+      <workItem from="1608134838261" duration="1534000" />
+      <workItem from="1608162600143" duration="2114000" />
     </task>
     <task id="LOCAL-00001" summary="repository setup">
       <created>1607781792431</created>
@@ -243,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607782034019</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="database migrations setup">
+      <created>1608014265569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608014265569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +252,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="repository setup" />
     <MESSAGE value="SSL support setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="SSL support setup" />
+    <MESSAGE value="database migrations setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="database migrations setup" />
   </component>
 </project>

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -45,6 +46,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function findOrCreate($identity, $role = 'student'): User {
+        if (User::all()->where('identity',$identity)->count() == 0) {
+            $temp_user = new User();
+            $temp_user->identity = $identity;
+            $temp_user->name     = 'temp_val';
+            $temp_user->email    = 'temp_val@temp.tmp';
+            $temp_user->role     = $role;
+            $temp_user->password = Hash::make('temp_val');
+            $temp_user->save();
+            return $temp_user;
+        }
+        return User::all()->where('identity',$identity)->first();
+    }
 
     public function student(): HasOne {
         return $this->hasOne(Student::class);

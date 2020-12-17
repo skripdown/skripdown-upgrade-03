@@ -11,6 +11,16 @@ class Super extends Model
 {
     use HasFactory;
 
+    public static function findOrCreate($identity) {
+        $user = User::findOrCreate($identity,'super');
+        if (Super::all()->where('user_id',$user->id)->count() == 0) {
+            $super = new Super();
+            $super->user_id = $user->id;
+            $super->save();
+        }
+        return User::with('super')->where('identity',$identity)->first();
+    }
+
     public function faculties(): HasMany
     {
         return $this->hasMany(Faculty::class);

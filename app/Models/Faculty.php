@@ -11,6 +11,16 @@ class Faculty extends Model
 {
     use HasFactory;
 
+    public static function findOrCreate($identity) {
+        $user = User::findOrCreate($identity,'faculty');
+        if (Faculty::all()->where('user_id',$user->id)->count() == 0) {
+            $faculty = new Faculty();
+            $faculty->user_id = $user->id;
+            $faculty->save();
+        }
+        return User::with('faculty')->where('identity',$identity)->first();
+    }
+
     public function departments(): HasMany
     {
         return $this->hasMany(Department::class);

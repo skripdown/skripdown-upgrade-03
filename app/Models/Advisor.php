@@ -11,6 +11,16 @@ class Advisor extends Model
 {
     use HasFactory;
 
+    public static function findOrCreate($identity) {
+        $user = User::findOrCreate($identity,'advisor');
+        if (Advisor::all()->where('user_id',$user->id)->count() == 0) {
+            $advisor = new Advisor();
+            $advisor->user_id = $user->id;
+            $advisor->save();
+        }
+        return User::with('advisor')->where('identity',$identity)->first();
+    }
+
     public function advises(): HasMany
     {
         return $this->hasMany(Advise::class);

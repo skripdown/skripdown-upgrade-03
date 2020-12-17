@@ -12,6 +12,16 @@ class Department extends Model
 {
     use HasFactory;
 
+    public static function findOrCreate($identity) {
+        $user = User::findOrCreate($identity,'department');
+        if (Department::all()->where('user_id',$user->id)->count() == 0) {
+            $department = new Faculty();
+            $department->user_id = $user->id;
+            $department->save();
+        }
+        return User::with('faculty')->where('identity',$identity)->first();
+    }
+
     public function occupations(): HasMany
     {
         return $this->hasMany(Occupation::class);

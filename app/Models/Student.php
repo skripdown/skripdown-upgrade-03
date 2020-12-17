@@ -12,6 +12,16 @@ class Student extends Model
 {
     use HasFactory;
 
+    public static function findOrCreate($identity) {
+        $user = User::findOrCreate($identity);
+        if (Student::all()->where('user_id',$user->id)->count() == 0) {
+            $student = new Student();
+            $student->user_id = $user->id;
+            $student->save();
+        }
+        return User::with('student')->where('identity',$identity)->first();
+    }
+
     public function document(): HasOne
     {
         return $this->hasOne(Document::class);
