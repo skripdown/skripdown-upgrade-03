@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Super extends Model
 {
@@ -41,6 +42,11 @@ class Super extends Model
     public function templates(): HasMany
     {
         return $this->hasMany(Template::class);
+    }
+
+    public function token(): HasOne
+    {
+        return $this->hasOne(Token::class);
     }
 
     public function user(): BelongsTo
