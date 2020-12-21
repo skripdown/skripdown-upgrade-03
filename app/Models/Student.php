@@ -24,9 +24,7 @@ class Student extends Model
             'department',
             'faculty',
             'super',
-            'super.templates'=>function ($query) {
-                $query->where('default',true);
-            },
+            'super.templates',
             'document',
             'proposal',
             'exam',

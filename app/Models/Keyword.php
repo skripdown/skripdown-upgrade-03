@@ -10,6 +10,20 @@ class Keyword extends Model
 {
     use HasFactory;
 
+    public static function findOrCreate($key): Keyword{
+        $keyword = null;
+        if (Keyword::all()->where('key',$key)->count() == 0) {
+            $keyword       = new Keyword();
+            $keyword->key  = $key;
+            $keyword->save();
+        }
+        else {
+            $keyword       = Keyword::all()->where('key',$key)->first();
+            $keyword->year = intval(date('Y'));
+        }
+        return $keyword;
+    }
+
     public function document_keywords(): HasMany
     {
         return $this->hasMany(DocumentKeyword::class);

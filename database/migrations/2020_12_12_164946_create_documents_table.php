@@ -21,11 +21,14 @@ class CreateDocumentsTable extends Migration
             $table->bigInteger('super_id')->unsigned();
             $table->bigInteger('template_id')->unsigned();
             $table->string('title');
+            $table->enum('citation',['apa'])->default('apa');
+            $table->string('location')->nullable();
+            $table->string('preface')->nullable();
             $table->string('url');
             $table->boolean('submit')->default(false);
             $table->text('meta_content');
             $table->text('content')->nullable();
-            $table->text('parsed_ontent')->nullable();
+            $table->text('parsed_content')->nullable();
             $table->text('chapter_i')->nullable();
             $table->text('chapter_ii')->nullable();
             $table->text('chapter_iii')->nullable();

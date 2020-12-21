@@ -11,14 +11,16 @@ class Advisor extends Model
 {
     use HasFactory;
 
-    public static function findOrCreate($identity) {
+    public static function findOrCreate($identity,$createOnFail = false) {
         $user = User::findOrCreate($identity,'advisor');
-        if (Advisor::all()->where('user_id',$user->id)->count() == 0) {
+        if (Advisor::all()->where('user_id',$user->id)->count() == 0 && $createOnFail) {
             $advisor = new Advisor();
             $advisor->user_id = $user->id;
             $advisor->save();
         }
-        return User::with('advisor')->where('identity',$identity)->first();
+        return Advisor
+            ::with('user','advises','advises.revisions','occupations.department','occupations.department.faculty','occupations.department.faculty.super')
+            ->where('identity',$identity)->first();
     }
 
     public function advises(): HasMany

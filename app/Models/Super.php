@@ -18,7 +18,9 @@ class Super extends Model
             $super->user_id = $user->id;
             $super->save();
         }
-        return User::with('super')->where('identity',$identity)->first();
+        return Super
+            ::with('user','faculties','documents','faculties.departments','faculties.departments.students','faculties.departments.occupations.advisor')
+            ->where('identity',$identity)->first();
     }
 
     public function students(): HasMany

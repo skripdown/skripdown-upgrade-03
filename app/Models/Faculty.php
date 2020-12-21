@@ -18,7 +18,9 @@ class Faculty extends Model
             $faculty->user_id = $user->id;
             $faculty->save();
         }
-        return User::with('faculty')->where('identity',$identity)->first();
+        return Faculty
+            ::with('user','departments','departments.documents','departments.documents.student','departments.occupations.advisor')
+            ->where('identity',$identity)->first();
     }
 
     public function students(): HasMany

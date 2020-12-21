@@ -16,6 +16,7 @@ class CreateKeywordsTable extends Migration
         Schema::create('keywords', function (Blueprint $table) {
             $table->id();
             $table->string('key');
+            $table->integer('year')->default(intval(date('Y')));
             $table->timestamps();
         });
     }

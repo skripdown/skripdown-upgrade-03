@@ -34,7 +34,9 @@ class Document extends Model
             $document->save();
         }
 
-        return Document::all()->where($foreign,$id)->first();
+        return Document
+            ::with('advises','advises.revisions','proposals','rejected_proposals','document_keywords','exam','exam.examiners','exam.examiners.advisor','template','student','student.user')
+            ->where($foreign,$id)->first();
     }
 
     private static function url($student_id, $super_id): string{

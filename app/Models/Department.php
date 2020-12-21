@@ -19,7 +19,9 @@ class Department extends Model
             $department->user_id = $user->id;
             $department->save();
         }
-        return User::with('faculty')->where('identity',$identity)->first();
+        return Department
+            ::with('user','faculty','super','occupations.advisor','documents','documents.student')
+            ->where('identity',$identity)->first();
     }
 
     public function students(): HasMany
