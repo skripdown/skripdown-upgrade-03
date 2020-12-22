@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="document backend update">
-      <change afterPath="$PROJECT_DIR$/app/Models/Previlege.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Token.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_094141_create_previleges_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_094817_create_tokens_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/PrevilegeSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
+    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="developer backend">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/template.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Super.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Super.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +165,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bagus\PhpstormProjects\skripdown-upgrade-03\public" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -209,7 +206,8 @@
       <workItem from="1608194601324" duration="7345000" />
       <workItem from="1608266046929" duration="4433000" />
       <workItem from="1608434793849" duration="6838000" />
-      <workItem from="1608528238988" duration="16501000" />
+      <workItem from="1608528238988" duration="17967000" />
+      <workItem from="1608596844025" duration="316000" />
     </task>
     <task id="LOCAL-00001" summary="repository setup">
       <created>1607781792431</created>
@@ -253,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608543869710</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="developer backend">
+      <created>1608567447356</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608567447356</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +284,7 @@
     <MESSAGE value="database user relational mapping setup" />
     <MESSAGE value="document backend setup" />
     <MESSAGE value="document backend update" />
-    <option name="LAST_COMMIT_MESSAGE" value="document backend update" />
+    <MESSAGE value="developer backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="developer backend" />
   </component>
 </project>

@@ -1,0 +1,60 @@
+#skrip {
+    color: #444;
+}
+
+#skrip p {
+    line-height: 1.5em;
+    text-align: justify;
+    text-indent: 2rem;
+}
+
+#skrip p + p {
+    margin-top: -0.8rem;
+    text-indent: 0;
+}
+
+.list-item {
+    text-indent: -1rem;
+    text-align: justify;
+    margin-left: 2rem;
+}
+.lists {
+    display: inline-block;
+}
+
+.link {
+    color: #01caf1;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+#skrip .sub-bab {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.syntax {
+    opacity: 0.75;
+    color: grey;
+}
+
+.meta {
+    opacity: 0.9;
+    color: darkseagreen;
+}
+
+.cite {
+    opacity: 0.8;
+    color: dodgerblue;
+    font-weight: 600;
+}
+
+.cite-param {
+    margin-left: 2rem;
+}
+
+.sections {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+}
