@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="update backend auth VUE" />
+    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="modify artisan console" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,6 +221,7 @@
       <workItem from="1608906890417" duration="50000" />
       <workItem from="1608907211659" duration="1604000" />
       <workItem from="1608967198184" duration="1705000" />
+      <workItem from="1608973342503" duration="348000" />
     </task>
     <task id="LOCAL-00001" summary="repository setup">
       <created>1607781792431</created>
@@ -306,7 +307,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608973212660</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="integrate README.md">
+      <created>1608973411044</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608973411044</updated>
+    </task>
+    <task id="LOCAL-00014" summary="modify artisan console">
+      <created>1608973580982</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608973580982</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,6 +354,8 @@
     <MESSAGE value="init laravel plugin" />
     <MESSAGE value="update backend auth" />
     <MESSAGE value="update backend auth VUE" />
-    <option name="LAST_COMMIT_MESSAGE" value="update backend auth VUE" />
+    <MESSAGE value="integrate README.md" />
+    <MESSAGE value="modify artisan console" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify artisan console" />
   </component>
 </project>
