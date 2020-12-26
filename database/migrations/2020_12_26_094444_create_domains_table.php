@@ -19,8 +19,8 @@ class CreateDomainsTable extends Migration
             $table->bigInteger('super_id')->unsigned();
             $table->timestamps();
             $table->foreign('super_id')
-                ->references('supers')
-                ->on('id')
+                ->references('id')
+                ->on('supers')
                 ->onDelete('cascade');
         });
     }

@@ -15,7 +15,21 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('previlege_id')->unsigned();
+            $table->string('token')->unique();
+            $table->string('identity')->unique();
+            $table->string('name')->unique();
+            $table->string('city');
+            $table->string('email');
+            $table->string('password');
+            $table->boolean('verified')->default(false);
+            $table->boolean('has_pic')->default(false);
+            $table->string('pic')->nullable();
             $table->timestamps();
+            $table->foreign('previlege_id')
+                ->references('id')
+                ->on('previleges')
+                ->onDelete('cascade');
         });
     }
 

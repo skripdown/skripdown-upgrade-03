@@ -15,4 +15,9 @@ class Previlege extends Model
     {
         return $this->belongsTo(Token::class);
     }
+
+    public function order(): BelongsTo
+    {
+        return $this->belongsTo(Order::class);
+    }
 }
