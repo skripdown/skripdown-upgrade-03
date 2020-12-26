@@ -21,9 +21,9 @@ class Token extends Model
 
     private static function makeToken(): string {
         $alphabet = '_-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        $token    = round(microtime()*10000).'';
+        $token    = '';
         $length   = strlen($alphabet);
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 70; $i++) {
             $token .= $alphabet[rand(0, $length - 1)];
         }
         return $token;

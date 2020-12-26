@@ -9,11 +9,14 @@ use App\Models\Department;
 use App\Models\Developer;
 use App\Models\Document;
 use App\Models\Faculty;
+use App\Models\Previlege;
 use App\Models\Student;
 use App\Models\Super;
+use App\Models\Token;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
@@ -60,5 +63,20 @@ class Controller extends BaseController
             }
         }
         return redirect()->route('home');
+    }
+
+    public function register($id) {
+        if (!_Authorize::login()) {
+            if (Previlege::all()->count() < $id)
+                return 'ERROR!';
+            $plan = Previlege::all()->where('id',$id)->first();
+            $plan->token = Token::make();
+            return view('client.register', compact('plan'));
+        }
+        return 'ERROR!';
+    }
+
+    public function registerSubmit(Response $response) {
+        return 'success';
     }
 }

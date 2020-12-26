@@ -173,7 +173,7 @@
                                                             / tahun
                                                         </span>
                                                         </h4>
-                                                        <a href="" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
+                                                        <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
                                                         <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
                                                             @if ($previleges[$iter]->quota_faculty > 9999999)
                                                                 <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
@@ -229,7 +229,7 @@
                                                             / tahun
                                                         </span>
                                                         </h4>
-                                                        <a href="" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
+                                                        <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
                                                         <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
                                                             @if ($previleges[$iter]->quota_faculty > 9999999)
                                                                 <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
@@ -279,7 +279,7 @@
             </div>
         </section>
         <footer class="border-top">
-            <p class="text-center text-muted pt-4">Copyright © 2020. From <a href="https://www.instagram.com/malkolp/" target="_blank" class="px-1 font-weight-bold text-dark">Skripdown. inc</a>All rights reserved.</p>
+            <p class="text-center text-muted pt-4">Copyright © {{env('APP_YEAR')}}. From <a href="https://www.instagram.com/malkolp/" target="_blank" class="px-1 font-weight-bold text-dark">Skripdown. inc</a>All rights reserved.</p>
         </footer>
     </div>
 </div>

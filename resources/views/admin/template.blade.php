@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="{{env('APP_LANG')}}" dir="{{env('APP_DIR')}}">
     <head>
         <title>@yield('title')</title>

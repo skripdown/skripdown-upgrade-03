@@ -19,6 +19,10 @@ Route::get('/', 'Controller@home')->name('home');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/dashboard','Controller@dashboard')->name('dashboard');
 
+//GUEST
+Route::get('/register/{id}','Controller@register');
+Route::post('registerSubmit','Controller@registerSubmit');
+
 //STUDENT
 Route::get('/editor/{url}', 'Controller@openDoc')->name('editor');
 Route::get('/parse/{url}', 'Controller@parseDoc')->name('parse');

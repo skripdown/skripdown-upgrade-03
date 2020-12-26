@@ -44,6 +44,10 @@ class Super extends Model
         return $this->hasMany(Template::class);
     }
 
+    public function domains(): HasMany {
+        return $this->hasMany(Domain::class);
+    }
+
     public function token(): HasOne
     {
         return $this->hasOne(Token::class);
