@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="modify artisan console" />
+    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="modify env file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Token.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +224,7 @@
       <workItem from="1608906890417" duration="50000" />
       <workItem from="1608907211659" duration="1604000" />
       <workItem from="1608967198184" duration="1705000" />
-      <workItem from="1608973342503" duration="348000" />
+      <workItem from="1608973342503" duration="1244000" />
     </task>
     <task id="LOCAL-00001" summary="repository setup">
       <created>1607781792431</created>
@@ -321,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608973580982</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="modify env file">
+      <created>1608974001072</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608974001072</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +366,7 @@
     <MESSAGE value="update backend auth VUE" />
     <MESSAGE value="integrate README.md" />
     <MESSAGE value="modify artisan console" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify artisan console" />
+    <MESSAGE value="modify env file" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify env file" />
   </component>
 </project>

@@ -11,6 +11,24 @@ class Token extends Model
 {
     use HasFactory;
 
+    public static function make(): string {
+        $token = self::makeToken();
+        while (Token::all()->where('token',$token)->count() > 1) {
+            $token = self::makeToken();
+        }
+        return $token;
+    }
+
+    private static function makeToken(): string {
+        $alphabet = '_-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $token    = round(microtime()*10000).'';
+        $length   = strlen($alphabet);
+        for ($i = 0; $i < 30; $i++) {
+            $token .= $alphabet[rand(0, $length - 1)];
+        }
+        return $token;
+    }
+
     public function previlege(): HasOne
     {
         return $this->hasOne(Previlege::class);
