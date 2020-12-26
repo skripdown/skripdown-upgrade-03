@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\back\_Authorize;
 use App\Models\Advisor;
 use App\Models\Department;
+use App\Models\Developer;
 use App\Models\Document;
 use App\Models\Faculty;
 use App\Models\Student;
@@ -23,10 +24,14 @@ class Controller extends BaseController
     public function home() {
         $total_document = Document::all()->count();
         $total_active   = DB::table('advises')->distinct()->select('student_id')->count();
+        $previleges     = DB::table('previleges')->get();
+        $response       = (object) null;
         $response->total_doc    = $total_document;
         $response->total_active = $total_active;
+        $response->previleges   = $previleges;
 
-        return $response;
+
+        return view('welcome',compact('response'));
     }
 
     public function dashboard() {
@@ -46,6 +51,9 @@ class Controller extends BaseController
             }
             else if (_Authorize::super()) {
                 return Super::findOrCreate($auth->identity);
+            }
+            else if (_Authorize::developer()) {
+                return Developer::findOrCreate($auth->identity);
             }
             else {
                 return null;

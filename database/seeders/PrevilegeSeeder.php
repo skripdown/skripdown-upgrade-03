@@ -25,7 +25,7 @@ class PrevilegeSeeder extends Seeder
             'quota_template' => 1,
         ]);
         DB::table('previleges')->insert([
-            'name' => 'small',
+            'name' => 'start',
             'price' => 25,
             'quota_faculty' => 5,
             'quota_department' => 10,
@@ -35,7 +35,7 @@ class PrevilegeSeeder extends Seeder
             'quota_template' => 3,
         ]);
         DB::table('previleges')->insert([
-            'name' => 'medium',
+            'name' => 'academy',
             'price' => 100,
             'quota_faculty' => 10,
             'quota_department' => 20,
@@ -45,7 +45,7 @@ class PrevilegeSeeder extends Seeder
             'quota_template' => 10,
         ]);
         DB::table('previleges')->insert([
-            'name' => 'large',
+            'name' => 'institute',
             'price' => 200,
             'quota_faculty' => 20,
             'quota_department' => 40,
@@ -55,7 +55,17 @@ class PrevilegeSeeder extends Seeder
             'quota_template' => 99999999,
         ]);
         DB::table('previleges')->insert([
-            'name' => 'universal',
+            'name' => 'university',
+            'price' => 350,
+            'quota_faculty' => 40,
+            'quota_department' => 100,
+            'quota_advisor' => 99999999,
+            'quota_student' => 99999999,
+            'quota_document' => 99999999,
+            'quota_template' => 99999999,
+        ]);
+        DB::table('previleges')->insert([
+            'name' => 'all',
             'price' => 400,
             'quota_faculty' => 99999999,
             'quota_department' => 99999999,

@@ -1,3 +1,21 @@
 .active,.nav-link:hover {
     color: #5ed6b3!important;
 }
+.btn-success {
+    background-color: #5ed6b3;
+    border-color: #5ed6b3;
+    transition: all .5s ease-in-out;
+}
+.btn-success:hover {
+    color: #5ed6b3;
+    background-color: #fff;
+    border-color: #5ed6b3;
+}
+.btn {
+    border-radius: .1875rem;
+}
+
+
+.form-control:focus {
+    border: #aaa solid 2px;
+}

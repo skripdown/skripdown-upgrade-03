@@ -90,4 +90,8 @@ class User extends Authenticatable
     public function super(): HasOne {
         return $this->hasOne(Super::class);
     }
+
+    public function developer(): HasOne {
+        return $this->hasOne(Developer::class);
+    }
 }

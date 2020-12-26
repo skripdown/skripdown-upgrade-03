@@ -15,7 +15,7 @@ class CreatePrevilegesTable extends Migration
     {
         Schema::create('previleges', function (Blueprint $table) {
             $table->id();
-            $table->enum('name',['free','small','medium','large','universal'])->default('free');
+            $table->enum('name',['free','start','academy','institute','university','all'])->default('free');
             $table->bigInteger('price')->default(0);
             $table->integer('quota_faculty')->default(2);
             $table->integer('quota_department')->default(2);

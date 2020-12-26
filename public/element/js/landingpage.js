@@ -48,18 +48,25 @@ $(document).ready(function() {
       $('body').scrollspy({ target: '.navbar',offset: $(t).offset().top });
       return false;
   });
-
+    $('#hidden-service-btn').click(function () {
+        const a = $('#hidden-service-btn').get(0);
+        const b = $('#hidden-service').get(0);
+        $(a).addClass('popOut delay-500');
+        $(b).removeClass('d-none');
+        $(b).addClass('popIn delay-500');
+        $(a).hide(600);
+    });
 });
 
 // AOS
 AOS.init({
-    offset: 120, 
+    offset: 120,
     delay: 0,
-    duration: 1200, 
-    easing: 'ease', 
-    once: true, 
-    mirror: false, 
-    anchorPlacement: 'top-bottom', 
+    duration: 1200,
+    easing: 'ease',
+    once: true,
+    mirror: false,
+    anchorPlacement: 'top-bottom',
     disable: "mobile"
   });
 

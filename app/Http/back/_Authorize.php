@@ -39,6 +39,12 @@ class _Authorize
         return Auth::user()->role == 'super';
     }
 
+    public static function developer(): bool {
+        if (!self::login())
+            return false;
+        return Auth::user()->role == 'developer';
+    }
+
     public static function login(): bool {
         return Auth::check();
     }

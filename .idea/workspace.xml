@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="init admin template">
+    <list default="true" id="90723ea0-314d-4bbb-94d0-c0da1e81958f" name="Default Changelist" comment="update backend auth">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Developer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_073020_create_developers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/asset/fitur-3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/element/lib/extra/vivify/vivify.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/back/_Authorize.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/back/_Authorize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_21_094141_create_previleges_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_094141_create_previleges_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PrevilegeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PrevilegeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/element/css/added.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/element/css/added.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/element/js/landingpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/element/js/landingpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,12 +191,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/element/lib/extra/vivify" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bagus\PhpstormProjects\skripdown-upgrade-03\public\element\lib\extra\vivify" />
+      <recent name="C:\Users\bagus\PhpstormProjects\skripdown-upgrade-03\public\asset" />
+      <recent name="C:\Users\bagus\PhpstormProjects\skripdown-upgrade-03\resources\views" />
+      <recent name="C:\Users\bagus\PhpstormProjects\skripdown-upgrade-03\app\Http\Controllers\Auth" />
       <recent name="C:\Users\bagus\PhpstormProjects\skripdown-upgrade-03\public" />
     </key>
   </component>
@@ -210,7 +243,16 @@
       <workItem from="1608528238988" duration="17967000" />
       <workItem from="1608596844025" duration="2202000" />
       <workItem from="1608599147109" duration="778000" />
-      <workItem from="1608620108755" duration="352000" />
+      <workItem from="1608620108755" duration="4654000" />
+      <workItem from="1608646060324" duration="203000" />
+      <workItem from="1608690282945" duration="5483000" />
+      <workItem from="1608699003472" duration="1933000" />
+      <workItem from="1608803130495" duration="874000" />
+      <workItem from="1608808148765" duration="7681000" />
+      <workItem from="1608884964076" duration="4080000" />
+      <workItem from="1608906890417" duration="50000" />
+      <workItem from="1608907211659" duration="1604000" />
+      <workItem from="1608967198184" duration="1527000" />
     </task>
     <task id="LOCAL-00001" summary="repository setup">
       <created>1607781792431</created>
@@ -275,7 +317,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608598912208</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="admin template finish">
+      <created>1608620785810</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608620785810</updated>
+    </task>
+    <task id="LOCAL-00011" summary="init laravel plugin">
+      <created>1608620872375</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608620872375</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +360,9 @@
     <MESSAGE value="developer backend" />
     <MESSAGE value="adding asset" />
     <MESSAGE value="init admin template" />
-    <option name="LAST_COMMIT_MESSAGE" value="init admin template" />
+    <MESSAGE value="admin template finish" />
+    <MESSAGE value="init laravel plugin" />
+    <MESSAGE value="update backend auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="update backend auth" />
   </component>
 </project>
