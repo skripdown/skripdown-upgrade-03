@@ -75,8 +75,4 @@ class Controller extends BaseController
         }
         return 'ERROR!';
     }
-
-    public function registerSubmit(Response $response) {
-        return 'success';
-    }
 }
