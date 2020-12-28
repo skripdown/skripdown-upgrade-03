@@ -13,34 +13,34 @@ window._response = {
     init : function (token) {
         this.csrft = token;
     },
+    response : undefined,
     post : function (input) {
+        if (input.async === undefined)
+            input.async = true;
         if (input.enctype === undefined)
             input.enctype = 'multipart/form-data';
         if (input.processData === undefined)
             input.processData = false;
         let csrft    = this.csrft;
-        let response = undefined;
         csrft = csrft.slice(6,csrft.length-5);
         csrft = csrft.split('');
         csrft = csrft.reverse('');
         csrft = csrft.join('');
-        console.log(csrft);
         input.data._token = csrft;
         $.ajax({
             type : 'post',
+            async : input.async,
             url  : input.url,
             enctype : input.enctype,
-            processData : input.processData,
             data : input.data,
             success : e=>{
-                response = e;
-                response._status = true;
+                _response.response = e;
+                _response.response._status = true;
             },
             error : e=>{
-                response = e;
-                response._status = false;
+                _response.response = e;
+                _response.response._status = false;
             }
         });
-        return response;
     },
 }
