@@ -11,6 +11,8 @@
     <link rel="icon" type="image/png" href="{{asset(env('ICON_PATH'))}}">
     <link rel="stylesheet" href="{{asset(env('CSS_PATH').'style.min.css')}}">
     <link rel="stylesheet" href="{{asset(env('CSS_PATH').'added.css')}}">
+    <script src="{{asset(env('LIB_PATH').'extra/html5shiv/html5shiv.js')}}"></script>
+    <script src="{{asset(env('LIB_PATH').'extra/respond/respond.js')}}"></script>
     @yield('style-head')
     @yield('script-head')
 </head>
@@ -18,7 +20,7 @@
 <header class="shadow bg-white">
     <div class="navbar">
         <div class="nav-item">
-            <a href="">
+            <a href="{{url('/')}}">
                 <img src="{{asset(env('ICON_PATH'))}}" class="nav-icon" alt="">
             </a>
         </div>
@@ -35,6 +37,12 @@
         </div>
     </div>
 </header>
+<div class="preloader">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
 <div class="container pt-4 container-mh-90">
     <div class="container-fluid">
         <div class="row">
@@ -50,9 +58,15 @@
 <footer>
     <p class="text-center text-muted pt-1">Copyright © {{env('APP_YEAR')}}. From <a href="{{env('APP_AUTHOR_INFO')}}" target="_blank" class="px-1 font-weight-bold text-dark">{{env('APP_NAME')}}</a> All rights reserved.</p>
 </footer>
+<script src="{{asset(env('LIB_PATH').'core/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{asset(env('JS_PATH').'feather.min.js')}}"></script>
+<script src="{{asset(env('LIB_PATH').'core/popper.js/dist/umd/popper.min.js')}}"></script>
+<script src="{{asset(env('LIB_PATH').'core/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <script src="{{asset(env('LIB_PATH').'core/skripdown/_enc.js')}}"></script>
 <script src="{{asset(env('LIB_PATH').'core/skripdown/_response.js')}}"></script>
+<script>
+    $(".preloader ").fadeOut();
+</script>
 @yield('script-body')
 </body>
 </html>

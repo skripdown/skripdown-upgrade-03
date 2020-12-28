@@ -12,7 +12,7 @@
             </h2>
             <h4 class="card-title text-black-50">Tipe layanan : {{$plan->name}}</h4>
             <hr>
-            <form action="">
+            <form id="form">
                 <div class="form-group">
                     <input id="ip-0" class="d-none" type="hidden" name="plan" value="{{$plan->id}}">
                     <label for="ip-1" class="d-none"></label>
@@ -75,9 +75,12 @@
             func : function (elements) {
                 const data = {};
                 for (let i = 0; i < elements.length; i++) {
-                    data[elements[i].getAttribute('name')] = data.value;
+                    data[elements[i].getAttribute('name')] = elements[i].value;
                 }
-                _response.post({url:'{{url('registerSubmit')}}', processData:true, data:data});
+                _response.post({async:false,url:'{{url('registerSubmit')}}', data:data});
+                if (_response.response._status) {
+                    location.href = '{{url('/')}}';
+                }
             }
         });
     </script>

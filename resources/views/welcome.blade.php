@@ -279,7 +279,7 @@
             </div>
         </section>
         <footer class="border-top">
-            <p class="text-center text-muted pt-4">Copyright © {{env('APP_YEAR')}}. From <a href="https://www.instagram.com/malkolp/" target="_blank" class="px-1 font-weight-bold text-dark">Skripdown. inc</a>All rights reserved.</p>
+            <p class="text-center text-muted pt-4">Copyright © {{env('APP_YEAR')}}. From <a href="{{env('APP_AUTHOR_INFO')}}" target="_blank" class="px-1 font-weight-bold text-dark">{{env('APP_NAME')}}</a>All rights reserved.</p>
         </footer>
     </div>
 </div>
