@@ -21,7 +21,7 @@ Route::get('/dashboard','Controller@dashboard')->name('dashboard');
 
 //GUEST
 Route::get('/register/{id}','Controller@register');
-Route::post('registerSubmit','Controller@registerSubmit');
+Route::post('registerSubmit','OrderController@registerOrder');
 
 //STUDENT
 Route::get('/editor/{url}', 'Controller@openDoc')->name('editor');
