@@ -56,7 +56,7 @@
                         @if(\Illuminate\Support\Facades\Auth::check())
                             @can('isUStudent')
                                 <a href="{{url('/dashboard')}}" class="btn btn-success">Editor</a>
-                            @elsecan
+                            @else
                                 <a href="{{url('/dashboard')}}" class="btn btn-success">Dashboard</a>
                             @endcan
                         @else
@@ -190,6 +190,11 @@
                                                             @else
                                                                 <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
                                                             @endif
+                                                            @if ($previleges[$iter]->quota_student > 9999999)
+                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                            @else
+                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_student}} <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                            @endif
                                                             @if ($previleges[$iter]->quota_document > 9999999)
                                                                 <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
                                                             @else
@@ -246,6 +251,11 @@
                                                             @else
                                                                 <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
                                                             @endif
+                                                                @if ($previleges[$iter]->quota_student > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_student}} <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                @endif
                                                             @if ($previleges[$iter]->quota_document > 9999999)
                                                                 <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
                                                             @else

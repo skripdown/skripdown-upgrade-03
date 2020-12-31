@@ -16,6 +16,7 @@ class CreateDevelopersTable extends Migration
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
+            $table->enum('role',['admin','data_scientist','HR','CEO'])->default('admin');
             $table->timestamps();
             $table->foreign('user_id')
                 ->references('id')

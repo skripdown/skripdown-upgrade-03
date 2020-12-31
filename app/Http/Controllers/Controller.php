@@ -16,7 +16,6 @@ use App\Models\Token;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
@@ -56,7 +55,18 @@ class Controller extends BaseController
                 return Super::findOrCreate($auth->identity);
             }
             else if (_Authorize::developer()) {
-                return Developer::findOrCreate($auth->identity);
+                $dev = Developer::findOrCreate($auth->identity);
+                if (_Authorize::developer('admin'))
+                    return view('developer.dev.admin-order',compact('dev'));
+                elseif (_Authorize::developer('data_scientist')) {
+                    return view('developer.dev.data_scientist-data');
+                }
+                elseif (_Authorize::developer('HR')) {
+                    return view('developer.dev.hr-staff');
+                }
+                elseif (_Authorize::developer('CEO')) {
+                    return view('developer.dev.ceo-project');
+                }
             }
             else {
                 return null;

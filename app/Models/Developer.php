@@ -18,8 +18,13 @@ class Developer extends Model
             $developer->save();
         }
         return Developer
-            ::with('user')
-            ->where('identity',$identity)->first();
+            ::with([
+                'user'=>function($query) use ($identity) {
+                    $query->where('identity',$identity);
+                }
+            ])
+            ->where('user_id',$user->id)
+            ->first();
     }
 
     public function user(): BelongsTo {
