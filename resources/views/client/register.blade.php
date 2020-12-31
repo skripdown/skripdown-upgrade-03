@@ -73,11 +73,17 @@
             verify : 'ip-5',
             optional : {'ip-7':true},
             func : function (elements) {
-                const data = {};
+                const data  = {};
+                let file = undefined;
                 for (let i = 0; i < elements.length; i++) {
                     data[elements[i].getAttribute('name')] = elements[i].value;
+                    if (elements[i].getAttribute('type') === 'file') {
+                        if (file === undefined)
+                            file = {};
+                        file[elements[i].getAttribute('name')] = elements[i].files[0];
+                    }
                 }
-                _response.post({async:false,url:'{{url('registerSubmit')}}', data:data});
+                _response.post({async:false,url:'{{url('registerSubmit')}}', data:data,file:file});
                 if (_response.response._status) {
                     location.href = '{{url('/')}}';
                 }
