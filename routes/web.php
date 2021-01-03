@@ -19,10 +19,13 @@ Route::get('/', 'Controller@home')->name('home');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/dashboard','Controller@dashboard')->name('dashboard');
 
-//GUEST
+//REGISTER & ORDER
 Route::get('/register/{id}','Controller@register');
 Route::post('registerSubmit','OrderController@registerOrder');
 Route::get('/order/{token}','OrderController@order');
+Route::post('/verifyOrder','OrderController@verifyOrder');
+Route::post('/cancelOrder','OrderController@cancelOrder');
+Route::get('/verify/{token}','RegistrationController@registers');
 
 //STUDENT
 Route::get('/editor/{url}', 'Controller@openDoc')->name('editor');

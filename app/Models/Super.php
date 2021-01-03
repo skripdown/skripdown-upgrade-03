@@ -53,6 +53,10 @@ class Super extends Model
         return $this->hasOne(Token::class);
     }
 
+    public function registration(): HasOne {
+        return $this->hasOne(Registration::class);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

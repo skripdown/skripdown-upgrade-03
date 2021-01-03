@@ -9,6 +9,7 @@ use App\Models\Department;
 use App\Models\Developer;
 use App\Models\Document;
 use App\Models\Faculty;
+use App\Models\Order;
 use App\Models\Previlege;
 use App\Models\Student;
 use App\Models\Super;
@@ -17,6 +18,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
@@ -31,6 +33,9 @@ class Controller extends BaseController
         $response->total_doc    = $total_document;
         $response->total_active = $total_active;
         $response->previleges   = $previleges;
+        if (_Authorize::super()) {
+            $response->super    = Auth::user();
+        }
 
 
         return view('welcome',compact('response'));
@@ -56,8 +61,13 @@ class Controller extends BaseController
             }
             else if (_Authorize::developer()) {
                 $dev = Developer::findOrCreate($auth->identity);
-                if (_Authorize::developer('admin'))
-                    return view('developer.dev.admin-order',compact('dev'));
+                if (_Authorize::developer('admin')) {
+                    $orders = Order::all();
+                    $res    = (object) null;
+                    $res->dev    = $dev;
+                    $res->orders = $orders;
+                    return view('developer.dev.admin-order',compact('res'));
+                }
                 elseif (_Authorize::developer('data_scientist')) {
                     return view('developer.dev.data_scientist-data');
                 }

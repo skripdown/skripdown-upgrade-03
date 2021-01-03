@@ -29,9 +29,9 @@ class Token extends Model
         return $token;
     }
 
-    public function previlege(): HasOne
+    public function previlege(): BelongsTo
     {
-        return $this->hasOne(Previlege::class);
+        return $this->belongsTo(Previlege::class);
     }
 
     public function super(): BelongsTo

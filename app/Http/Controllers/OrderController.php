@@ -4,11 +4,13 @@
 
 namespace App\Http\Controllers;
 
-use A6digital\Image\DefaultProfileImage;
 use App\Http\back\_Image;
+use App\Http\back\_Mail;
+use App\Http\back\_Super;
 use App\Models\Order;
 use App\Models\Previlege;
-use Exception;
+use App\Models\Registration;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -57,6 +59,36 @@ class OrderController extends Controller
             $order->city     = env('APP_LOCATION');
         $order->token        = $request->token;
         $order->save();
+
+        return response()->json(array('request'=>$request->all(),'status'=>1));
+    }
+
+    public function verifyOrder(Request $request): JsonResponse {
+        $id = $request->id;
+        $order = Order::find($id);
+        $order->verified = true;
+        $order->save();
+
+        $super = _Super::init($order);
+
+        $reg = new Registration();
+        $reg->link = url('/verify').'/'.$order->token;
+        $reg->super_id = $super->id;
+        $super->registration()->save($reg);
+
+        $order->link = $reg->link;
+        _Mail::client_registration($order);
+
+        return response()->json(array('request'=>$request->all(),'status'=>1));
+    }
+
+    public function cancelOrder(Request $request): JsonResponse {
+        $id = $request->id;
+        $order = Order::find($id);
+        _Image::remove($order->pic,'profile');
+        _Image::remove($order->transaction,'transaction');
+        _Mail::client_registration_fail($order);
+        $order->delete();
 
         return response()->json(array('request'=>$request->all(),'status'=>1));
     }

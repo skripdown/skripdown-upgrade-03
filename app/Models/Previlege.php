@@ -11,9 +11,9 @@ class Previlege extends Model
 {
     use HasFactory;
 
-    public function token(): BelongsTo
+    public function token(): HasMany
     {
-        return $this->belongsTo(Token::class);
+        return $this->hasMany(Token::class);
     }
 
     public function order(): BelongsTo
