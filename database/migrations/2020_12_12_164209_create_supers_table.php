@@ -16,6 +16,7 @@ class CreateSupersTable extends Migration
         Schema::create('supers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
+            $table->string('city')->default('Malang');
             $table->timestamps();
             $table->foreign('user_id')
                 ->references('id')
