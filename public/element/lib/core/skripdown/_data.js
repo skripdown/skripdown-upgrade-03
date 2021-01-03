@@ -4,14 +4,14 @@
 
 window._data = {
     student : {
-        data : undefined,
+        data : {},
         fun_save : undefined,
         init : function (fun_save) {
             this.fun_save = fun_save;
         },
 
         insert : function (input) {
-            data[input.id] = input;
+            this.data[input.id] = input;
         },
         get : function (key) {
             return this.data[key];
@@ -21,13 +21,13 @@ window._data = {
         }
     },
     lecturer : {
-        data : undefined,
+        data : {},
         fun_save : undefined,
         init : function (fun_save) {
             this.fun_save = fun_save;
         },
         insert : function (input) {
-            data[input.id] = input;
+            this.data[input.id] = input;
         },
         get : function (key) {
             return this.data[key];
@@ -37,13 +37,13 @@ window._data = {
         }
     },
     department : {
-        data : undefined,
+        data : {},
         fun_save : undefined,
         init : function (fun_save) {
             this.fun_save = fun_save;
         },
         insert : function (input) {
-            data[input.id] = input;
+            this.data[input.id] = input;
         },
         get : function (key) {
             return this.data[key];
@@ -53,13 +53,13 @@ window._data = {
         }
     },
     faculty : {
-        data : undefined,
+        data : {},
         fun_save : undefined,
         init : function (fun_save) {
             this.fun_save = fun_save;
         },
         insert : function (input) {
-            data[input.id] = input;
+            this.data[input.id] = input;
         },
         get : function (key) {
             return this.data[key];
@@ -69,13 +69,13 @@ window._data = {
         }
     },
     super : {
-        data : undefined,
+        data : {},
         fun_save : undefined,
         init : function (fun_save) {
             this.fun_save = fun_save;
         },
         insert : function (input) {
-            data[input.id] = input;
+            this.data[input.id] = input;
         },
         get : function (key) {
             return this.data[key];

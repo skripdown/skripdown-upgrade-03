@@ -27,12 +27,12 @@ window._response = {
             input.data = formData;
         }
         if (input.async === undefined)
-            input.async = true;
+            input.async = false;
         if (input.enctype === undefined)
             input.enctype = 'multipart/form-data';
-        if (input.processData === undefined)
+        if (input.processData === undefined && input.file !== undefined)
             input.processData = false;
-        if (input.contentType === undefined)
+        if (input.contentType === undefined && input.file !== undefined)
             input.contentType = false;
         let csrft    = this.csrft;
         csrft = csrft.slice(6,csrft.length-5);

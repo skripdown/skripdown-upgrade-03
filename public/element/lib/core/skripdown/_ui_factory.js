@@ -678,6 +678,41 @@ window._ui_factory = {
             return [ctr];
         }
     },
+    _popup : {
+        card : function (element) {
+            const ctr = element;
+            const ctr_c1 = document.createElement('div');
+            const ctr_c1_c1 = document.createElement('div');
+            const ctr_c1_c1_hdr = document.createElement('div');
+            const ctr_c1_c1_hdr_ttl = document.createElement('h4');
+            const ctr_c1_c1_hdr_cls = document.createElement('button');
+            const ctr_c1_c1_bdy = document.createElement('div');
+
+            ctr.setAttribute('aria-hidden','true');
+            ctr.setAttribute('tabindex','-1');
+            ctr.setAttribute('class','modal fade');
+            ctr.setAttribute('role','dialog');
+            ctr_c1.setAttribute('class','modal-dialog modal-dialog-centered');
+            ctr_c1_c1.setAttribute('class','modal-content');
+            ctr_c1_c1_hdr.setAttribute('class','modal-header');
+            ctr_c1_c1_hdr_ttl.setAttribute('class','modal-title');
+            ctr_c1_c1_hdr_cls.setAttribute('class','close');
+            ctr_c1_c1_hdr_cls.setAttribute('type','button');
+            ctr_c1_c1_hdr_cls.setAttribute('data-dismiss','modal');
+            ctr_c1_c1_hdr_cls.setAttribute('aria-hidden','true');
+            ctr_c1_c1_hdr_cls.innerText = '×';
+            ctr_c1_c1_bdy.setAttribute('class','modal-body');
+
+            ctr.append(ctr_c1);
+            ctr_c1.append(ctr_c1_c1);
+            ctr_c1_c1.append(ctr_c1_c1_hdr);
+            ctr_c1_c1.append(ctr_c1_c1_bdy);
+            ctr_c1_c1_hdr.append(ctr_c1_c1_hdr_ttl);
+            ctr_c1_c1_hdr.append(ctr_c1_c1_hdr_cls);
+
+            return [ctr, ctr_c1_c1_hdr_ttl, ctr_c1_c1_bdy];
+        }
+    },
 }
 
 //@ LIBRARY : _card
@@ -1169,4 +1204,23 @@ window._linechart = {
 
         return temp_ui[0];
     }
+}
+
+window._popup = {
+    render : function (input) {
+        const uif_lib = _ui_factory._popup;
+        if (typeof input.element === 'string')
+            input.element = document.getElementById(input.element);
+        const res = uif_lib.card(input.element);
+        if (typeof input.title === 'string')
+            res[1].innerHTML = input.title;
+        else
+            res[1].append(input.title);
+        if (typeof input.content === 'string')
+            res[2].innerHTML = input.content;
+        else
+            res[2].append(input.content);
+
+        return res[0];
+    },
 }
