@@ -49,9 +49,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#digital-marketing-section">Fitur</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#repository-section">Layanan</a>
-                    </li>
+                    @if (\Illuminate\Support\Facades\Auth::check())
+                        @if(\Illuminate\Support\Facades\Auth::user()->role == 'super')
+                            <li class="nav-item">
+                                <a class="nav-link" href="#repository-section">Layanan</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="#repository-section">Layanan</a>
+                        </li>
+                    @endif
                     <li class="nav-item btn-contact-us pl-4 pl-lg-0">
                         @if(\Illuminate\Support\Facades\Auth::check())
                             @can('isUStudent')
@@ -147,147 +155,303 @@
                 </div>
             </div>
         </section>
-        <section class="features-overview" id="repository-section">
-            <div class="content-header">
-                <div class="span-area">
-                    <div class="ept-span"></div>
-                    <div class="fill-span">
-                        <h2>Layanan Skripdown</h2>
-                        <div class="container-fluid">
-                            <div class="card-group">
-                                @php
-                                    $iter = 0;
-                                @endphp
-                                @while($iter < 3)
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="d-flex d-lg-flex d-md-block align-items-center shadow-lg">
-                                                <div class="w-100">
-                                                    <div class="card-title bg-success pt-3 pb-1">
-                                                        <h4 class="text-white">{{$previleges[$iter]->name}}</h4>
-                                                    </div>
-                                                    <div class="p-4 mb-2">
-                                                        <h4 class="pb-3">
-                                                            <span class="text-info">Rp {{$previleges[$iter]->price}} juta</span>
-                                                            <span class="text-muted" style="font-size: 10pt">
-                                                            / tahun
-                                                        </span>
-                                                        </h4>
-                                                        <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
-                                                        <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
-                                                            @if ($previleges[$iter]->quota_faculty > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_faculty}} <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_department > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Department</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_department}} <span class="text-muted" style="font-size: 10pt">Department</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_advisor > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_student > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_student}} <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_document > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_document}} <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_template > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Template</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_template}} <span class="text-muted" style="font-size: 10pt">Template</span></div>
-                                                            @endif
+        @if (\Illuminate\Support\Facades\Auth::check())
+            @if (\Illuminate\Support\Facades\Auth::user()->role == 'super')
+                <section class="features-overview" id="repository-section">
+                    <div class="content-header">
+                        <div class="span-area">
+                            <div class="ept-span"></div>
+                            <div class="fill-span">
+                                <h2>Layanan Skripdown</h2>
+                                <div class="container-fluid">
+                                    <div class="card-group">
+                                        @php
+                                            $iter = 0;
+                                        @endphp
+                                        @while($iter < 3)
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="d-flex d-lg-flex d-md-block align-items-center shadow-lg">
+                                                        <div class="w-100">
+                                                            <div class="card-title bg-success pt-3 pb-1">
+                                                                <h4 class="text-white">{{$previleges[$iter]->name}}</h4>
+                                                            </div>
+                                                            <div class="p-4 mb-2">
+                                                                <h4 class="pb-3">
+                                                                    <span class="text-info">Rp {{$previleges[$iter]->price}} juta</span>
+                                                                    <span class="text-muted" style="font-size: 10pt"> / tahun</span>
+                                                                </h4>
+                                                                @if (\Illuminate\Support\Facades\Auth::user()->super()->first()->token()->first()->previlege()->first()->id > $previleges[$iter]->id)
+                                                                    <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Downgrade Sekarang</a>
+                                                                @elseif (\Illuminate\Support\Facades\Auth::user()->super()->first()->token()->first()->previlege()->first()->id < $previleges[$iter]->id)
+                                                                    <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Upgrade Sekarang</a>
+                                                                @else
+                                                                    <a href="javascript:void(0)" class="btn btn-success font-weight-semibold mb-3">Fitur Sekarang</a>
+                                                                @endif
+                                                                <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
+                                                                    @if ($previleges[$iter]->quota_faculty > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_faculty}} <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_department > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_department}} <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_advisor > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_student > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_student}} <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_document > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_document}} <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_template > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_template}} <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            @php
+                                                if (isset($iter)) {
+                                                    $iter++;
+                                                }
+                                            @endphp
+                                        @endwhile
                                     </div>
-                                    @php
-                                        if (isset($iter)) {
-                                            $iter++;
-                                        }
-                                    @endphp
-                                @endwhile
-                            </div>
-                            <div class="card-group d-none" id="hidden-service">
-                                @while($iter < count($previleges))
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="d-flex d-lg-flex d-md-block align-items-center shadow-lg">
-                                                <div class="w-100">
-                                                    <div class="card-title bg-success pt-3 pb-1">
-                                                        <h4 class="text-white">{{$previleges[$iter]->name}}</h4>
-                                                    </div>
-                                                    <div class="p-4 mb-2">
-                                                        <h4 class="pb-3">
-                                                            <span class="text-info">Rp {{$previleges[$iter]->price}} juta</span>
-                                                            <span class="text-muted" style="font-size: 10pt">
+                                    <div class="card-group d-none" id="hidden-service">
+                                        @while($iter < count($previleges))
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="d-flex d-lg-flex d-md-block align-items-center shadow-lg">
+                                                        <div class="w-100">
+                                                            <div class="card-title bg-success pt-3 pb-1">
+                                                                <h4 class="text-white">{{$previleges[$iter]->name}}</h4>
+                                                            </div>
+                                                            <div class="p-4 mb-2">
+                                                                <h4 class="pb-3">
+                                                                    <span class="text-info">Rp {{$previleges[$iter]->price}} juta</span>
+                                                                    <span class="text-muted" style="font-size: 10pt">
                                                             / tahun
                                                         </span>
-                                                        </h4>
-                                                        <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
-                                                        <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
-                                                            @if ($previleges[$iter]->quota_faculty > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_faculty}} <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_department > 9999999)
-                                                                 <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Department</span></div>
-                                                            @else
-                                                                 <div class="mt-1 mb-1">{{$previleges[$iter]->quota_department}} <span class="text-muted" style="font-size: 10pt">Department</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_advisor > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
-                                                            @endif
+                                                                </h4>
+                                                                @if (\Illuminate\Support\Facades\Auth::user()->super()->first()->token()->first()->previlege()->first()->id > $previleges[$iter]->id)
+                                                                    <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Downgrade Sekarang</a>
+                                                                @elseif (\Illuminate\Support\Facades\Auth::user()->super()->first()->token()->first()->previlege()->first()->id < $previleges[$iter]->id)
+                                                                    <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Upgrade Sekarang</a>
+                                                                @else
+                                                                    <a href="javascript:void(0)" class="btn btn-success font-weight-semibold mb-3">Fitur Sekarang</a>
+                                                                @endif
+                                                                <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
+                                                                    @if ($previleges[$iter]->quota_faculty > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_faculty}} <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_department > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_department}} <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_advisor > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_student > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_student}} <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_document > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_document}} <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                    @endif
+                                                                    @if ($previleges[$iter]->quota_template > 9999999)
+                                                                        <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                    @else
+                                                                        <div class="mt-1 mb-1">{{$previleges[$iter]->quota_template}} <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @php
+                                                if (isset($iter)) {
+                                                    $iter++;
+                                                }
+                                            @endphp
+                                        @endwhile
+                                    </div>
+                                </div>
+                                <div>
+                                    <a id="hidden-service-btn" href="javascript:void(0)" type="button" class="link btn btn-sm btn-outline-info">Detail Layanan Lainnya</a>
+                                </div>
+                            </div>
+                            <div class="ept-span"></div>
+                        </div>
+                    </div>
+                </section>
+            @endif
+        @else
+            <section class="features-overview" id="repository-section">
+                <div class="content-header">
+                    <div class="span-area">
+                        <div class="ept-span"></div>
+                        <div class="fill-span">
+                            <h2>Layanan Skripdown</h2>
+                            <div class="container-fluid">
+                                <div class="card-group">
+                                    @php
+                                        $iter = 0;
+                                    @endphp
+                                    @while($iter < 3)
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex d-lg-flex d-md-block align-items-center shadow-lg">
+                                                    <div class="w-100">
+                                                        <div class="card-title bg-success pt-3 pb-1">
+                                                            <h4 class="text-white">{{$previleges[$iter]->name}}</h4>
+                                                        </div>
+                                                        <div class="p-4 mb-2">
+                                                            <h4 class="pb-3">
+                                                                <span class="text-info">Rp {{$previleges[$iter]->price}} juta</span>
+                                                                <span class="text-muted" style="font-size: 10pt">
+                                                            / tahun
+                                                        </span>
+                                                            </h4>
+                                                            <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
+                                                            <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
+                                                                @if ($previleges[$iter]->quota_faculty > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_faculty}} <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_department > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_department}} <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_advisor > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                @endif
                                                                 @if ($previleges[$iter]->quota_student > 9999999)
                                                                     <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
                                                                 @else
                                                                     <div class="mt-1 mb-1">{{$previleges[$iter]->quota_student}} <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
                                                                 @endif
-                                                            @if ($previleges[$iter]->quota_document > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_document}} <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
-                                                            @endif
-                                                            @if ($previleges[$iter]->quota_template > 9999999)
-                                                                <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Template</span></div>
-                                                            @else
-                                                                <div class="mt-1 mb-1">{{$previleges[$iter]->quota_template}} <span class="text-muted" style="font-size: 10pt">Template</span></div>
-                                                            @endif
+                                                                @if ($previleges[$iter]->quota_document > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_document}} <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_template > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_template}} <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    @php
-                                        if (isset($iter)) {
-                                            $iter++;
-                                        }
-                                    @endphp
-                                @endwhile
+                                        @php
+                                            if (isset($iter)) {
+                                                $iter++;
+                                            }
+                                        @endphp
+                                    @endwhile
+                                </div>
+                                <div class="card-group d-none" id="hidden-service">
+                                    @while($iter < count($previleges))
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex d-lg-flex d-md-block align-items-center shadow-lg">
+                                                    <div class="w-100">
+                                                        <div class="card-title bg-success pt-3 pb-1">
+                                                            <h4 class="text-white">{{$previleges[$iter]->name}}</h4>
+                                                        </div>
+                                                        <div class="p-4 mb-2">
+                                                            <h4 class="pb-3">
+                                                                <span class="text-info">Rp {{$previleges[$iter]->price}} juta</span>
+                                                                <span class="text-muted" style="font-size: 10pt">
+                                                            / tahun
+                                                        </span>
+                                                            </h4>
+                                                            <a href="{{url('/register/'.$previleges[$iter]->id)}}" class="btn btn-info font-weight-semibold mb-3">Pilih Sekarang</a>
+                                                            <div class="w-75 ml-auto mr-auto pt-2 text-left border-top">
+                                                                @if ($previleges[$iter]->quota_faculty > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_faculty}} <span class="text-muted" style="font-size: 10pt">Fakultas</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_department > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_department}} <span class="text-muted" style="font-size: 10pt">Department</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_advisor > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_advisor}} <span class="text-muted" style="font-size: 10pt">Pembimbing</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_student > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_student}} <span class="text-muted" style="font-size: 10pt">Penulis</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_document > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_document}} <span class="text-muted" style="font-size: 10pt">Dokumen</span></div>
+                                                                @endif
+                                                                @if ($previleges[$iter]->quota_template > 9999999)
+                                                                    <div class="mt-1 mb-1"><span class="text-info">Unlimited</span> <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                @else
+                                                                    <div class="mt-1 mb-1">{{$previleges[$iter]->quota_template}} <span class="text-muted" style="font-size: 10pt">Template</span></div>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @php
+                                            if (isset($iter)) {
+                                                $iter++;
+                                            }
+                                        @endphp
+                                    @endwhile
+                                </div>
+                            </div>
+                            <div>
+                                <a id="hidden-service-btn" href="javascript:void(0)" type="button" class="link btn btn-sm btn-outline-info">Detail Layanan Lainnya</a>
                             </div>
                         </div>
-                        <div>
-                            <a id="hidden-service-btn" href="javascript:void(0)" type="button" class="link btn btn-sm btn-outline-info">Detail Layanan Lainnya</a>
-                        </div>
+                        <div class="ept-span"></div>
                     </div>
-                    <div class="ept-span"></div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
         <footer class="border-top">
             <p class="text-center text-muted pt-4">Copyright © {{env('APP_YEAR')}}. From <a href="{{env('APP_AUTHOR_INFO')}}" target="_blank" class="px-1 font-weight-bold text-dark">{{env('APP_NAME')}}</a>All rights reserved.</p>
         </footer>

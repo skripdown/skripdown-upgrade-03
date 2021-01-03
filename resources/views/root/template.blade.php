@@ -28,7 +28,7 @@
             @if(\Illuminate\Support\Facades\Auth::check())
                 @can('isUStudent')
                     <a href="{{url('/dashboard')}}" class="btn btn-success">Editor</a>
-                @elsecan
+                @else
                     <a href="{{url('/dashboard')}}" class="btn btn-success">Dashboard</a>
                 @endcan
             @else
@@ -53,6 +53,7 @@
             <div class="col-lg-2 d-md-1"></div>
         </div>
     </div>
+    @yield('pop-up')
 </div>
 <hr>
 <footer>

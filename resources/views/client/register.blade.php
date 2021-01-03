@@ -85,7 +85,7 @@
                 }
                 _response.post({async:false,url:'{{url('registerSubmit')}}', data:data,file:file});
                 if (_response.response._status) {
-                    location.href = '{{url('/')}}';
+                    location.href = '{{url('/order/'.$plan->token)}}';
                 }
             }
         });
