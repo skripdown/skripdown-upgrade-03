@@ -17,7 +17,7 @@ class CreateTokensTable extends Migration
             $table->id();
             $table->string('token')->unique();
             $table->bigInteger('previlege_id')->unsigned();
-            $table->bigInteger('super_id')->unsigned();
+            $table->bigInteger('super_id')->unsigned()->nullable();
             $table->timestamps();
             $table->foreign('previlege_id')
                 ->references('id')
