@@ -1,24 +1,17 @@
 @echo off
-if %1%==fresh (GOTO FRESH)
-if %1%==seed (GOTO SEED)
-if %1%==serve (GOTO SERVE)
-if %1%==publish (GOTO PUBLISH)
+if %1%==deploy (GOTO DEPLOY)
+if %1%==redeploy (GOTO REDEPLOY)
 :DONE
 EXIT
 
-:FRESH
-start php skripdown migrate:fresh
-GOTO DONE
-
-:SEED
-start php skripdown migrate:fresh --seed
-GOTO DONE
-
-:SERVE
+:REDEPLOY
+start /wait py auto/storage_fresh.py
 start /wait php skripdown migrate:fresh --seed
 start php skripdown serve
+start ngrok http 127.0.0.1:8000
 GOTO DONE
 
-:PUBLISH
+:DEPLOY
+start php skripdown serve
 start ngrok http 127.0.0.1:8000
 GOTO DONE
