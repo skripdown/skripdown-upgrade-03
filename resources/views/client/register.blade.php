@@ -60,6 +60,7 @@
 
 @section('script-body')
     <script src="{{asset(env('LIB_PATH').'core/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset(env('LIB_PATH').'core/skripdown/_ui_factory.js')}}"></script>
     <script>
         @include('root.token')
         _mailmatch.for('ip-3');
@@ -73,6 +74,7 @@
             verify : 'ip-5',
             optional : {'ip-7':true},
             func : function (elements) {
+                _transition.in();
                 const data  = {};
                 let file = undefined;
                 for (let i = 0; i < elements.length; i++) {
@@ -87,6 +89,8 @@
                 if (_response.response._status) {
                     location.href = '{{url('/order/'.$plan->token)}}';
                 }
+                else
+                    _transition.out();
             }
         });
     </script>
