@@ -19,6 +19,6 @@ class RegistrationController extends Controller
         _Income::insert(Order::all()->where('token',$token)->first());
 
         Auth::login($user);
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 }

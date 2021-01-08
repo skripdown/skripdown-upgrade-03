@@ -57,7 +57,8 @@ class Controller extends BaseController
                 return Faculty::findOrCreate($auth->identity);
             }
             else if (_Authorize::super()) {
-                return Super::findOrCreate($auth->identity);
+                $data = Super::findOrCreate($auth->identity);
+                return view('client.super.dashboard_super',compact('data'));
             }
             else if (_Authorize::developer()) {
                 $dev = Developer::findOrCreate($auth->identity);
