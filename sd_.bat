@@ -1,6 +1,10 @@
 @echo off
-if %1%==deploy (GOTO DEPLOY)
-if %1%==redeploy (GOTO REDEPLOY)
+if %1%==deploy (
+    GOTO DEPLOY
+)
+if %1%==redeploy (
+    GOTO REDEPLOY
+)
 :DONE
 EXIT
 
