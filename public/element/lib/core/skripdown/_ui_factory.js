@@ -1224,3 +1224,12 @@ window._popup = {
         return res[0];
     },
 }
+
+window._transition = {
+    in : function () {
+        $(".preloader").fadeIn();
+    },
+    out : function () {
+        $(".preloader").fadeOut();
+    }
+}
