@@ -109,7 +109,7 @@
                     @yield('popup')
                 </div>
                 <footer class="footer text-center text-muted">
-                    {{env('APP_NAME').' v'.env('APP_VERSION').' '.env('APP_DEV_STATUS').'.'}}
+                    <p class="text-center text-muted pt-1">Copyright © {{env('APP_YEAR')}}. From <a href="{{env('APP_AUTHOR_INFO')}}" target="_blank" class="px-1 font-weight-bold text-dark">{{env('APP_NAME')}}</a> All rights reserved.</p>
                 </footer>
             </div>
         </div>
