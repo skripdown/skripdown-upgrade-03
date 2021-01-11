@@ -13,18 +13,15 @@
     <link rel="stylesheet" href="{{asset(env('LIB_PATH').'extra/prism/prism.css')}}">
     <link rel="stylesheet" href="{{asset(env('LIB_PATH').'extra/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
     <link rel="stylesheet" href="{{asset(env('CSS_PATH').'style.min.css')}}">
+    <link rel="stylesheet" href="{{asset(env('CSS_PATH').'preloader.css')}}">
+    @include('root.preloader_style')
     @yield('style-head')
     @yield('script-head')
     <script src="{{asset(env('LIB_PATH').'extra/html5shiv/html5shiv.js')}}"></script>
     <script src="{{asset(env('LIB_PATH').'extra/respond/respond.js')}}"></script>
 </head>
 <body>
-<div class="preloader">
-    <div class="lds-ripple">
-        <div class="lds-pos"></div>
-        <div class="lds-pos"></div>
-    </div>
-</div>
+@include('root.preloader')
 <div id="main-wrapper"  data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
     <header class="topbar" data-navbarbg="skin6">
         <nav class="navbar top-navbar navbar-expand-md">
@@ -128,6 +125,10 @@
 <script src="{{asset(env('JS_PATH').'pages/dashboards/dashboard1.min.js')}}"></script>
 <script src="{{asset(env('LIB_PATH').'extra/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset(env('LIB_PATH').'extra/prism/prism.js')}}"></script>
+<script src="{{asset(env('LIB_PATH').'core/skripdown/_response.js')}}"></script>
+<script src="{{asset(env('LIB_PATH').'core/skripdown/_ui_factory.js')}}"></script>
+<script src="{{asset(env('LIB_PATH').'core/skripdown/_data.js')}}"></script>
+<script src="{{asset(env('LIB_PATH').'core/skripdown/_enc.js')}}"></script>
 @yield('script-body')
 </body>
 </html>

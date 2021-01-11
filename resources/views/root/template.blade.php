@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset(env('CSS_PATH').'added.css')}}">
     <script src="{{asset(env('LIB_PATH').'extra/html5shiv/html5shiv.js')}}"></script>
     <script src="{{asset(env('LIB_PATH').'extra/respond/respond.js')}}"></script>
+    @include('root.preloader_style')
     @yield('style-head')
     @yield('script-head')
 </head>
@@ -37,12 +38,7 @@
         </div>
     </div>
 </header>
-<div class="preloader">
-    <div class="lds-ripple">
-        <div class="lds-pos"></div>
-        <div class="lds-pos"></div>
-    </div>
-</div>
+@include('root.preloader')
 <div class="container pt-4 container-mh-90">
     <div class="container-fluid">
         <div class="row">
