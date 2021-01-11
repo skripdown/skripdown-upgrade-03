@@ -62,4 +62,17 @@ window._response = {
             }
         });
     },
+    get : function (url,async=true) {
+        $.ajax({
+            type: 'get',
+            url : url,
+            async:async,
+            success : e=>{
+                _response.response = e;
+            },
+            error : e=>{
+                _response.response = e;
+            }
+        });
+    }
 }
