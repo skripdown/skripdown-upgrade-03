@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
 /** @noinspection PhpUndefinedMethodInspection */
 
 
@@ -40,6 +41,96 @@ class _Super {
 
     }
 
+    public static function quota_template(): bool {
+        if (_Authorize::login()) {
+            if (_Authorize::developer() || _Authorize::advisor() || _Authorize::student())
+                return false;
+
+            $super     = self::super(_Authorize::data());
+            $templates = $super->templates()->count();
+            $previlege = self::previleges($super);
+
+            return $templates < $previlege->quota_template;
+        }
+
+        return false;
+    }
+
+    public static function quota_faculty():bool {
+        if (_Authorize::login()) {
+            if (_Authorize::developer() || _Authorize::advisor() || _Authorize::student() || _Authorize::department())
+                return false;
+
+            $super     = self::super(_Authorize::data());
+            $faculties = $super->faculties()->count();
+            $previlege = self::previleges($super);
+
+            return $faculties < $previlege->quota_faculty;
+        }
+
+        return false;
+    }
+
+    public static function quota_department():bool {
+        if (_Authorize::login()) {
+            if (_Authorize::developer() || _Authorize::department() || _Authorize::advisor() || _Authorize::student())
+                return false;
+
+            $super      = self::super(_Authorize::data());
+            $department = $super->departments()->count();
+            $previleges = self::previleges($super);
+
+            return $department < $previleges->quota_department;
+        }
+
+        return false;
+    }
+
+    public static function quota_advisor():bool {
+        if (_Authorize::login()) {
+            if (_Authorize::developer() || _Authorize::advisor() || _Authorize::student())
+                return false;
+
+            $super     = self::super(_Authorize::data());
+            $advisors  = $super->advisors()->count();
+            $previlege = self::previleges($super);
+
+            return $advisors < $previlege->quota_advisor;
+        }
+
+        return false;
+    }
+
+    public static function quota_student():bool {
+        if (_Authorize::login()) {
+            if (_Authorize::developer() || _Authorize::student() || _Authorize::advisor())
+                return false;
+
+            $super     = self::super(_Authorize::data());
+            $student   = $super->students()->count();
+            $previlege = self::previleges($super);
+
+            return $student < $previlege->quota_student;
+        }
+
+        return false;
+    }
+
+    public static function quota_document():bool {
+        if (_Authorize::login()) {
+            if (_Authorize::developer() || _Authorize::student() || _Authorize::advisor())
+                return false;
+
+            $super     = self::super(_Authorize::data());
+            $document  = $super->documents()->count();
+            $previlege = self::previleges($super);
+
+            return $document < $previlege->quota_document;
+        }
+
+        return false;
+    }
+
     private static function default_template(): Template {
         $template             = new Template();
         $template->default    = true;
@@ -61,5 +152,20 @@ class _Super {
         $token->super_id = $super;
 
         return $token;
+    }
+
+    private static function super($user) {
+        if (_Authorize::super())
+            $super = $user->super()->first();
+        elseif (_Authorize::faculty())
+            $super = $user->faculty()->first()->super()->first();
+        else
+            $super = $user->department()->first()->super()->first();
+
+        return $super;
+    }
+
+    private static function previleges($super) {
+        return $super->token()->first()->previlege()->first();
     }
 }
