@@ -16,10 +16,15 @@ class CreateAdvisorsTable extends Migration
         Schema::create('advisors', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('super_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('cascade');
+            $table->foreign('super_id')
+                ->references('id')
+                ->on('supers')
                 ->onDelete('cascade');
         });
     }

@@ -20,6 +20,8 @@ class CreateDocumentsTable extends Migration
             $table->bigInteger('faculty_id')->unsigned();
             $table->bigInteger('super_id')->unsigned();
             $table->bigInteger('template_id')->unsigned();
+            $table->string('author')->nullable();
+            $table->string('identity')->nullable();
             $table->string('title');
             $table->enum('citation',['apa'])->default('apa');
             $table->string('location')->nullable();
