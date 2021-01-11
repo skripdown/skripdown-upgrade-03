@@ -38,9 +38,12 @@ class _Image {
         return $filename;
     }
 
-    public static function setProfile($file, $identity, $role = 'und'):string {
+    public static function setProfile($file, $identity, $role = 'und', $dev = false):string {
         $filename = time().$identity.$role.'.'.$file->getClientOriginalExtension();
-        self::save($file,self::$path['profile'].$filename,false,true);
+        if ($dev)
+            self::save($file,self::$path['developer_profile'].$filename,false,true);
+        else
+            self::save($file,self::$path['profile'].$filename,false,true);
         return $filename;
     }
 
